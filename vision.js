@@ -29,7 +29,7 @@ function analyze()
             },
             "features":[{
                 "type":"FACE_DETECTION",
-                "maxResults": 10
+                "maxResults": 255
             }]
         }]
     }
@@ -67,8 +67,8 @@ function displayFaceExpressions(response) {
     const ctx = canvas.getContext("2d");
     const image = document.getElementById("gimage");
 
-    canvas.width = image.offsetWidth;
-    canvas.height = image.offsetHeight;
+    canvas.width = image.width;
+    canvas.height = image.height;
     ctx.clearRect(0, 0, canvas.width, canvas.height); // 이전 그리기 초기화
 
     if (response.responses[0].faceAnnotations) {
